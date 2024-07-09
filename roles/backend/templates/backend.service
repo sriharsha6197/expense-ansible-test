@@ -1,0 +1,11 @@
+[Unit]
+Description=Backend Service
+
+[Service]
+User=sri
+Environment=DB_HOST="172.31.25.145"
+ExecStart=/bin/node /app/index.js
+SyslogIdentifier=Backend
+
+[Install]
+WantedBy=multi-user.target
