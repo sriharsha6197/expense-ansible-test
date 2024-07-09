@@ -20,7 +20,7 @@
 
 - name: import common role
   ansible.builtin.import_role:
-    name: commmon
+    name: common
     tasks_from: app_prereq
 
 - name: download dependencies
