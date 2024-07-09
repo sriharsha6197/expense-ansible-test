@@ -1,0 +1,15 @@
+- name: remove old content in nginx directory
+  ansible.builtin.file:
+    path: "{{ path }}"
+    state: absent
+
+- name: create a directory
+  ansible.builtin.file:
+    path: "{{ path }}"
+    state: directory
+
+- name: download frontend content
+  ansible.builtin.unarchive:
+    src: https://expense-artifacts.s3.amazonaws.com/{{ component }}.zip
+    dest: "{{ path }}"
+    remote_src: yes
