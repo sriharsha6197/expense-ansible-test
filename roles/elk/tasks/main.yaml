@@ -1,0 +1,36 @@
+- name: copy elasticsearch repo
+  ansible.builtin.template:
+    src: elastic.repo
+    dest: /etc/yum.repos.d/elastic.repo
+- name: install elasticsearch
+  ansible.builtin.dnf:
+    name: elasticsearch
+    state: installed
+- name: restart elasticsearch service
+  ansible.builtin.systemd:
+    name: elasticsearch
+    state: restarted
+    enabled: yes
+    daemon-reload: yes
+
+- name: install kibana
+  ansible.builtin.dnf:
+    name: kibana
+    state: installed
+- name: start kibana
+  ansible.builtin.systemd:
+    name: kibana
+    enabled: yes
+    state: restarted
+    daemon-reload: yes
+
+- name: install logstash
+  ansible.builtin.dnf:
+    name: logstash
+    state: installed
+- name: start logstash
+  ansible.builtin.systemd:
+    name: logstash
+    enabled: yes
+    state: restarted
+    daemon-reload: yes
