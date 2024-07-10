@@ -213,7 +213,7 @@ processors:
 # Instrumentation support for the filebeat.
 #instrumentation:
     # Set to true to enable instrumentation of filebeat.
-    enabled: true
+    #enabled: true
 
     # Environment in which filebeat is running on (eg: staging, production, etc.)
     #environment: ""
