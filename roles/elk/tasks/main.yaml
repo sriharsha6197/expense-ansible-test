@@ -6,6 +6,10 @@
   ansible.builtin.dnf:
     name: elasticsearch
     state: installed
+- name: copy elasticsearch yaml
+  ansible.builtin.template:
+    src: elasticsearch.yml
+    dest: /etc/elasticsearch/elasticsearch.yml
 - name: restart elasticsearch service
   ansible.builtin.systemd:
     name: elasticsearch
