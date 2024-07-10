@@ -19,17 +19,17 @@
   ansible.builtin.template:
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
-- name: restart elasticsearch service
-  ansible.builtin.systemd:
-    name: elasticsearch
-    state: restarted
-    enabled: yes
-    daemon-reload: yes
 - name: restart nginx
   ansible.builtin.systemd:
     name: nginx
     enabled: yes
     state: restarted
+    daemon-reload: yes
+- name: restart elasticsearch service
+  ansible.builtin.systemd:
+    name: elasticsearch
+    state: restarted
+    enabled: yes
     daemon-reload: yes
 
 - name: install kibana
