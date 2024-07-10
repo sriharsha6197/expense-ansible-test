@@ -15,6 +15,10 @@
   ansible.builtin.template:
     src: elasticsearch.yml
     dest: /etc/elasticsearch/elasticsearch.yml
+- name: copy nginx conf
+  ansible.builtin.template:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
 - name: restart elasticsearch service
   ansible.builtin.systemd:
     name: elasticsearch
