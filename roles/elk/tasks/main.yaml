@@ -1,3 +1,8 @@
+- name: install nginx
+  ansible.builtin.dnf:
+    name: nginx
+    state: installed
+
 - name: copy elasticsearch repo
   ansible.builtin.template:
     src: elastic.repo
@@ -15,6 +20,12 @@
     name: elasticsearch
     state: restarted
     enabled: yes
+    daemon-reload: yes
+- name: restart nginx
+  ansible.builtin.systemd:
+    name: nginx
+    enabled: yes
+    state: restarted
     daemon-reload: yes
 
 - name: install kibana
