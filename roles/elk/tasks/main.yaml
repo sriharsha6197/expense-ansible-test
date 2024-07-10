@@ -36,6 +36,10 @@
   ansible.builtin.dnf:
     name: kibana
     state: installed
+- name: copy kibana yml conf
+  ansible.builtin.template:
+    src: kibana.yml
+    dest: /etc/kibana/kibana.yml
 - name: start kibana
   ansible.builtin.systemd:
     name: kibana
