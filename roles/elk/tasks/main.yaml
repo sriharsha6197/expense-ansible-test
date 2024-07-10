@@ -61,3 +61,16 @@
     enabled: yes
     state: restarted
     daemon-reload: yes
+
+
+- name: install filebeat
+  ansible.builtin.dnf:
+    name: filebeat
+    state: installed
+
+- name: start filebeat
+  ansible.builtin.systemd:
+    name: filebeat
+    enabled: yes
+    state: restarted
+    daemon-reload: yes
