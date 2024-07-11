@@ -171,13 +171,13 @@ output.logstash:
 processors:
   - drop_fields:
       fields: 
-         - agent.ephemeral_id
-         - agent.id
-         - agent.name
-         - agent.type
-         - agent.version
-         - host.architecture
-         - host.containerized
+        - agent.ephemeral_id
+        - agent.id
+        - agent.name
+        - agent.type
+        - agent.version
+        - host.architecture
+        - host.containerized
   # - add_host_metadata:
   #     when.not.contains.tags: forwarded
   # - add_cloud_metadata: ~
