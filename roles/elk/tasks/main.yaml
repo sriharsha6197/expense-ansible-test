@@ -5,7 +5,7 @@
 
 - name: copy elasticsearch repo
   ansible.builtin.template:
-    src: elastic.repo
+    src: filebeat.repo
     dest: /etc/yum.repos.d/filebeat.repo
 - name: install elasticsearch
   ansible.builtin.dnf:
