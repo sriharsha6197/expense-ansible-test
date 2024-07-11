@@ -19,3 +19,8 @@
     state: restarted
     enabled: yes
     daemon-reload: yes
+
+- name: copy filebeat yml
+  ansible.builtin.template:
+    src: filebeat.yml
+    dest: /etc/filebeat/filebeat.yml
