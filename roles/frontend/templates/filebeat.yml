@@ -178,6 +178,7 @@ processors:
         - agent.version
         - host.architecture
         - host.containerized
+      ignore_missing: false
   # - add_host_metadata:
   #     when.not.contains.tags: forwarded
   # - add_cloud_metadata: ~
