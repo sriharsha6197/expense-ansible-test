@@ -5,8 +5,8 @@ After=network-online.target
 
 [Service]
 Type=simple
-ExecStart=/node
-WorkingDirectory=/node
+ExecStart=/node/node_exporter-1.8.1.linux-amd64/node_exporter
+WorkingDirectory=/node/node_exporter-1.8.1.linux-amd64
 
 [Install]
 WantedBy=multi-user.target
