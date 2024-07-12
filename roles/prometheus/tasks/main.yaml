@@ -36,7 +36,7 @@
     path: /etc/alertmanager
     state: directory
 - name: download alert manager
-  ansible.builtin.unarchhive:
+  ansible.builtin.unarchive:
     src: https://github.com/prometheus/alertmanager/releases/download/v0.27.0/alertmanager-0.27.0.linux-amd64.tar.gz
     dest: /etc/alertmanager
     remote_src: yes
