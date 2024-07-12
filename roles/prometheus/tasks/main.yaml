@@ -19,6 +19,11 @@
     src: records.yaml
     dest: /etc/prometheus/prometheus-2.53.1.linux-amd64/records.yaml
 
+- name: copy alerts yaml file
+  ansible.builtin.template:
+    src: alerts.yaml
+    dest: /etc/prometheus/prometheus-2.53.1.linux-amd64/alerts.yaml
+
 - name: copy prometheus service
   ansible.builtin.template:
     src: prometheus.service
