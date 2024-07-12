@@ -2,36 +2,51 @@
   ansible.builtin.file:
     path: /etc/prometheus
     state: directory
-
 - name: download prometheus
   ansible.builtin.unarchive:
     src: https://github.com/prometheus/prometheus/releases/download/v2.53.1/prometheus-2.53.1.linux-amd64.tar.gz
     dest: /etc/prometheus
     remote_src: yes
-
 - name: copy prometheus yml file
   ansible.builtin.template:
     src: prometheus.yml
     dest: /etc/prometheus/prometheus-2.53.1.linux-amd64/prometheus.yml
+- name: copy prometheus service
+  ansible.builtin.template:
+    src: prometheus.service
+    dest: /etc/systemd/system/prometheus.service
+- name: restart prometheus service
+  ansible.builtin.systemd:
+    name: prometheus
+    enabled: yes
+    state: restarted
+    daemon-reload: yes
 
 - name: copy records yaml file
   ansible.builtin.template:
     src: records.yaml
     dest: /etc/prometheus/prometheus-2.53.1.linux-amd64/records.yaml
-
 - name: copy alerts yaml file
   ansible.builtin.template:
     src: alerts.yaml
     dest: /etc/prometheus/prometheus-2.53.1.linux-amd64/alerts.yaml
 
-- name: copy prometheus service
+- name: create a directory
+  ansible.builtin.file:
+    path: /etc/alertmanager
+    state: directory
+- name: download alert manager
+  ansible.builtin.unarchhive:
+    src: https://github.com/prometheus/alertmanager/releases/download/v0.27.0/alertmanager-0.27.0.linux-amd64.tar.gz
+    dest: /etc/alertmanager
+    remote_src: yes
+- name: copy alert manager service
   ansible.builtin.template:
-    src: prometheus.service
-    dest: /etc/systemd/system/prometheus.service
-
-- name: restart prometheus service
-  ansible.builtin.systemd:
-    name: prometheus
+    src: alert-manager.service
+    dest: /etc/systemd/system/alert-manager.service
+- name: start alert manager
+  ansible.builtin.systemd: 
+    name: alert-manager
     enabled: yes
     state: restarted
     daemon-reload: yes

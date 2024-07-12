@@ -1,0 +1,11 @@
+[Unit]
+Description=Alert manager Service
+
+[Service]
+Type=simple
+ExecStart=/etc/alertmanager
+WorkingDirectory=/etc/alertmanager
+SyslogIdentifier=alertmanager
+
+[Install]
+WantedBy=multi-user.target
