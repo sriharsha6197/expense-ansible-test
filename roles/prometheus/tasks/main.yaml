@@ -17,7 +17,7 @@
 - name: copy records yaml file
   ansible.builtin.template:
     src: records.yaml
-    dest: /etc/prometheus/records.yaml
+    dest: /etc/prometheus/prometheus-2.53.1.linux-amd64/records.yaml
 
 - name: copy prometheus service
   ansible.builtin.template:
