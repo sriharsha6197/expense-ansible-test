@@ -40,6 +40,10 @@
     src: https://github.com/prometheus/alertmanager/releases/download/v0.27.0/alertmanager-0.27.0.linux-amd64.tar.gz
     dest: /etc/alertmanager
     remote_src: yes
+- name: copy alert manager yaml
+  ansible.builtin.template:
+    src: alertmanager.yml
+    dest: /etc/alertmanager/alertmanager-0.27.0.linux-amd64/alertmanager.yml
 - name: copy alert manager service
   ansible.builtin.template:
     src: alert-manager.service
