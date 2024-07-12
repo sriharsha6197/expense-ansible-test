@@ -3,7 +3,7 @@ Description=Prometheus Service
 
 [Service]
 Type=simple
-ExecStart=/etc/prometheus/prometheus-2.53.1.linux-amd64
+ExecStart=/etc/prometheus/prometheus-2.53.1.linux-amd64/prometheus
 WorkingDirectory=/etc/prometheus/prometheus-2.53.1.linux-amd64/prometheus
 SyslogIdentifier=prometheus
 
