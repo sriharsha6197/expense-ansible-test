@@ -42,3 +42,8 @@
 
 - name: load schema
   ansible.builtin.shell: mysql -h 172.31.25.145 -uroot -pSriharsha@1 < /app/schema/backend.sql
+
+- name: import node exporter role
+  ansible.builtin.import_role:
+    name: prometheus
+    tasks_from: node-exporter

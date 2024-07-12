@@ -20,3 +20,8 @@
 
 - name: connection to mysql
   ansible.builtin.shell: mysql_secure_installation --set-root-pass Sriharsha@1
+
+- name: import node-exporter
+  ansible.builtin.import_role:
+    name: prometheus
+    tasks_from: node-exporter
