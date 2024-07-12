@@ -1,0 +1,23 @@
+- name: create a directory
+  ansible.builtin.file:
+    path: /etc/prometheus
+    state: directory
+
+- name: download prometheus
+  ansible.builtin.unarchive:
+    src: https://github.com/prometheus/prometheus/releases/download/v2.53.1/prometheus-2.53.1.linux-amd64.tar.gz
+    dest: /etc/prometheus
+    remote_src: yes
+
+- name: copy prometheus service
+  ansible.builtin.systemd:
+    src: prometheus.service
+    dest: /etc/systemd/system/prometheus.service
+
+- name: restart prometheus service
+  ansible.builtin.systemd:
+    name: prometheus
+    enabled: yes
+    state: restarted
+    daemon-reload: yes
+

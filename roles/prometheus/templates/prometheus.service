@@ -1,0 +1,11 @@
+[Unit]
+Description=Prometheus Service
+
+[Service]
+Type=simple
+ExecStart=/etc/prometheus
+WorkingDirectory=/etc/prometheus
+SyslogIdentifier=prometheus
+
+[Install]
+WantedBy=multi-user.target
