@@ -11,6 +11,6 @@ receivers:
       - to: "a24121068@gmail.com"
         from: "a24121068@gmail.com"
         smarthost: "email-smtp.us-east-1.amazonaws.com:587"
-        auth_username: "AKIA47CRXJA24YDIFSKM"
-        auth_password: "BP4HEoR1/lIpHl3hOLGZyokPtEgu5ix3ggcA3LxtWNna"
+        auth_username: "AKIA47CRXJA24P2BPI7N"
+        auth_password: "BL3Q8YipKyV9Wnde1sKQ/h3hx46Ockq4Ooje3lB9wfjR"
         require_tls: true
