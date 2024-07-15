@@ -32,3 +32,27 @@ groups:
       severity: critical
     annotations:
       summary: mysql Service down alert
+
+  - alert: mysqld_service_down_alert
+    expr: node_systemd_unit_state{exported_name="mysqld.service",state="active"} == 0
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: mysql Service down alert
+
+  - alert: High cpu usage alert
+    expr: (100 - avg by (name) (rate(node_cpu_seconds_total{mode="idle"}[1m])*100)) > 80
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: high cpu usage alert
+
+  - alert: High cpu usage alert
+    expr: node_free_percentage > 80
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: high memory usage alert
