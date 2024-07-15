@@ -11,6 +11,6 @@ receivers:
       - to: "a24121068@gmail.com"
         from: "a24121068@gmail.com"
         smarthost: "email-smtp.us-east-1.amazonaws.com:587"
-        auth_username: "{{ lookup('aws_ssm', region='us-east-1', 'alertmanager_username') }}"
-        auth_password: "{{ lookup('aws_ssm', region='us-east-1', 'alertmanager_password') }}"
+        auth_username: "{{ lookup('aws_ssm', 'alertmanager_username', region='us-east-1') }}"
+        auth_password: "{{ lookup('aws_ssm', 'alertmanager_password', region='us-east-1') }}"
         require_tls: true
