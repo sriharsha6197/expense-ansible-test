@@ -41,7 +41,7 @@
     state: installed
 
 - name: load schema
-  ansible.builtin.shell: mysql -h {{ lookup('aws_ssm', 'expense.back.mysql_ip', region='us-east-1') }} -uroot -pSriharsha@1 < /app/schema/backend.sql
+  ansible.builtin.shell: mysql -h {{ lookup('aws_ssm', 'expense_backend_mysql_ip', region='us-east-1') }} -uroot -pSriharsha@1 < /app/schema/backend.sql
 
 # - name: import node exporter role
 #   ansible.builtin.import_role:
