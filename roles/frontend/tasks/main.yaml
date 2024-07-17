@@ -25,12 +25,12 @@
     enabled: yes
     daemon-reload: yes
 
-- name: copy filebeat yml
-  ansible.builtin.template:
-    src: filebeat.yml
-    dest: /etc/filebeat/filebeat.yml
+# - name: copy filebeat yml
+#   ansible.builtin.template:
+#     src: filebeat.yml
+#     dest: /etc/filebeat/filebeat.yml
 
-- name: import node exporter role
-  ansible.builtin.import_role:
-    name: prometheus
-    tasks_from: node-exporter
+# - name: import node exporter role
+#   ansible.builtin.import_role:
+#     name: prometheus
+#     tasks_from: node-exporter
