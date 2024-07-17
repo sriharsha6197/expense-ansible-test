@@ -3,7 +3,7 @@ Description=Backend Service
 
 [Service]
 User=sri
-Environment=DB_HOST="{{ lookup('aws_ssm', 'expense.backend.mysql_url', region='us-east-1') }}"
+Environment=DB_HOST="{{ lookup('aws_ssm', 'expense.back.mysql_ip', region='us-east-1') }}"
 ExecStart=/bin/node /app/index.js
 SyslogIdentifier=Backend
 
